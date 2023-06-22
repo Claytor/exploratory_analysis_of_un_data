@@ -1,26 +1,30 @@
 ## **Data Question 1: An Exploration of UN data**
+
 In this project, you'll be doing some exploratory analysis on two country-level metrics, gross domestic product (GDP) per capita and overall life expectancy. After completing the guided practice section, you will have a chance to find some additional data and do some more exploring of your own.
 
 ### Guided Practice:
- 1.	Download the Gross Domestic Product (GDP) per capita dataset from [http://data.un.org/Data.aspx?d=WDI&f=Indicator_Code%3aNY.GDP.PCAP.PP.KD](http://data.un.org/Data.aspx?d=WDI&f=Indicator_Code%3aNY.GDP.PCAP.PP.KD). Rename it to gdp_per_capita.csv and place it in the `data` folder of your project repository.
+
+1. Download the Gross Domestic Product (GDP) per capita dataset from [http://data.un.org/Data.aspx?d=WDI&f=Indicator_Code%3aNY.GDP.PCAP.PP.KD](http://data.un.org/Data.aspx?d=WDI&f=Indicator_Code%3aNY.GDP.PCAP.PP.KD). Rename it to gdp_per_capita.csv and place it in the `data` folder of your project repository.
 
 2. Create a Jupyter Notebook in the `notebooks` folder and name it `UN_Data_Exploration`.
-    *  You are likely to get errors along the way. When you do, read the errors to try to understand what is happening and how to correct it.
-    * Use markdown cells to record your answers to any questions asked in this exercise. On the menu bar, you can toggle the cell type from 'Code' to 'Markdown'. [Here](https://www.markdownguide.org/cheat-sheet/) is a link to a cheat sheet showing the basics of styling text using Markdown.
+   
+   * You are likely to get errors along the way. When you do, read the errors to try to understand what is happening and how to correct it.
+   * Use markdown cells to record your answers to any questions asked in this exercise. On the menu bar, you can toggle the cell type from 'Code' to 'Markdown'. [Here](https://www.markdownguide.org/cheat-sheet/) is a link to a cheat sheet showing the basics of styling text using Markdown.
 
-3.	In the first cell of your notebook, import the required packages with their customary aliases as follows:
+3. In the first cell of your notebook, import the required packages with their customary aliases as follows:
+   
+   `import pandas as pd`   
+   `import numpy as np`  
+   `import matplotlib.pyplot as plt`  
+   `import seaborn as sns`
+   
+   Keep all imports in this cell at the top of your notebook.
 
-    `import pandas as pd`   
-    `import numpy as np`  
-    `import matplotlib.pyplot as plt`  
-    `import seaborn as sns`
-    
-    Keep all imports in this cell at the top of your notebook.
-    
-4.	Using the pandas `read_csv()` function, read the GDP dataset into your notebook as a DataFrame called `gdp_df`. 
-    * Take a look at the first 10 rows. 
-    * Look at the last 5 rows. Do you see a problem?
-    * Redo the read_csv() call to correct this issue - **do not** modify the original csv file.
+4. Using the pandas `read_csv()` function, read the GDP dataset into your notebook as a DataFrame called `gdp_df`. 
+   
+   * Take a look at the first 10 rows. 
+   * Look at the last 5 rows. Do you see a problem?
+   * Redo the read_csv() call to correct this issue - **do not** modify the original csv file.
 
 5. Drop the 'Value Footnotes' column, and rename the remaining columns to 'Country', 'Year', and 'GDP_Per_Capita'.
 
@@ -45,7 +49,7 @@ In this project, you'll be doing some exploratory analysis on two country-level 
 15. How many countries experienced a negative percent change in GDP per capita from 1990 to 2017?
 
 16. Which country had the highest % change in GDP per capita? Create a line plot showing this country's GDP per capita for all years from 1990 to 2017. Create another showing the country with the second highest % change in GDP. How do the trends in these countries compare?  
-**Bonus:** Put both line charts on the same plot.
+    **Bonus:** Put both line charts on the same plot.
 
 17. Read in continents.csv contained in the `data` folder into a new dataframe called `continents`. We will be using this dataframe to add a new column to our dataset.
 
@@ -56,7 +60,7 @@ In this project, you'll be doing some exploratory analysis on two country-level 
 20. Create a seaborn boxplot showing GDP per capita in 2014 split out by continent. What do you notice?
 
 21. Download the full csv containing Life expectancy at birth, total (years) from [https://data.worldbank.org/indicator/SP.DYN.LE00.IN?name_desc=false](https://data.worldbank.org/indicator/SP.DYN.LE00.IN?name_desc=false). Read this data into a DataFrame named `life_expectancy`.
- 
+
 22. Drop the Country Code, Indicator Name, and Indicator Code columns. Then use `.melt()` to convert your data from wide to long. That is, instead of having one row per country and multiple colums per year, we want to have multiple rows per country and a single column for year. After melting, rename the columns to `Country`, `Year`, and `Life_Expectancy`.
 
 23. What was the first country with a life expectancy to exceed 80?
@@ -74,5 +78,6 @@ In this project, you'll be doing some exploratory analysis on two country-level 
 29. Add a column to `gdp_le_2019` and calculate the logarithm of GDP per capita. Find the correlation between the log of GDP per capita and life expectancy. How does this compare to the calculation in the previous part? Look at a scatter plot to see if the result of this calculation makes sense.
 
 ### Solo Exploration and Presentation:
+
 1. Choose and download another data set from the UN data [http://data.un.org/Explorer.aspx](http://data.un.org/Explorer.aspx) to explore. You may want to combine your new dataset with one or both of the datasets that you already worked with. Prepare a short (< 5 minute) presentation of your findings. Report any interesting correlations or trends that you find. 
-2.    If time allows, check out the plotly library to add additional interativity to your plots. [https://plotly.com/python/plotly-express/](https://plotly.com/python/plotly-express/).
+2. If time allows, check out the plotly library to add additional interativity to your plots. [https://plotly.com/python/plotly-express/](https://plotly.com/python/plotly-express/).
